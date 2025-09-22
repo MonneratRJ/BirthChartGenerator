@@ -23,13 +23,27 @@ async function fetchChartData(formData) {
     renderChart(data);
 }
 
-document.getElementById('chartForm').addEventListener('submit', function (e) {
+document.getElementById('chartForm').addEventListener('submit', async function (e) {
     e.preventDefault();
+    let valid = true;
+    Array.from(e.target.elements).forEach(el => {
+        if (el.name && el.required) {
+            if (!el.value || (el.type === 'number' && isNaN(el.value))) {
+                el.style.border = '2px solid red';
+                valid = false;
+            } else {
+                el.style.border = '';
+            }
+        }
+    });
+    if (!valid) {
+        return;
+    }
     const formData = {};
     Array.from(e.target.elements).forEach(el => {
         if (el.name) formData[el.name] = el.value;
     });
-    fetchChartData(formData);
+    await fetchChartData(formData);
 });
 
 function formatDegree(degree) {

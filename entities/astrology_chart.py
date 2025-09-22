@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 class AstrologyChartEntity:
-    def __init__(self, name, year, month, day, hour, minute, nation, city, lat, lng, tz_str="America/Sao_Paulo"):
+    def __init__(self, name, year, month, day, hour, minute, country, city, lat, lng, tz_str="America/Sao_Paulo"):
         self.name = name
         self.year = year
         self.month = month
@@ -14,7 +14,7 @@ class AstrologyChartEntity:
         self.hour = hour
         self.minute = minute
         self.city = city
-        self.nation = nation
+        self.country = country
         self.lat = lat
         self.lng = lng
         self.tz_str=tz_str
@@ -33,13 +33,12 @@ class AstrologyChartEntity:
                 hour=self.hour,
                 minute=self.minute,
                 city=self.city,
-                nation=self.nation,
+                nation=self.country,
                 lat=self.lat,
                 lng=self.lng,
                 tz_str=self.tz_str,
                 geonames_username=geonames_username
             )
-            #print("DEBUG: chart attributes:", dir(self.chart))
         except Exception as e:
             import traceback
             self.error = f"{e}\n{traceback.format_exc()}"

@@ -17,18 +17,23 @@ def static_files(filename):
 @app.route("/api/chart", methods=["POST"])
 def chart_data():
     data = request.get_json()
+    required_fields = ["name", "year", "month", "day", "hour", "minute", "country", "city", "lat", "lng", "tz_str"]
+    missing = [f for f in required_fields if f not in data or data[f] in (None, "")]
+    if missing:
+        print(f"[ERROR] Missing required fields: {missing}")
+        return jsonify({"error": f"Missing required fields: {', '.join(missing)}"}), 400
     chart_args = {
-        "name": data.get("name", ""),
-        "year": int(data.get("year", 1983)),
-        "month": int(data.get("month", 11)),
-        "day": int(data.get("day", 4)),
-        "hour": int(data.get("hour", 19)),
-        "minute": int(data.get("minute", 20)),
-        "nation": data.get("nation", "BR"),
-        "city": data.get("city", "Rio de Janeiro"),
-        "lat": float(data.get("lat", -22.92409)),
-        "lng": float(data.get("lng", -43.21102)),
-        "tz_str": data.get("tz_str", "America/Sao_Paulo")
+        "name": data["name"],
+        "year": int(data["year"]),
+        "month": int(data["month"]),
+        "day": int(data["day"]),
+        "hour": int(data["hour"]),
+        "minute": int(data["minute"]),
+        "country": data["country"],
+        "city": data["city"],
+        "lat": float(data["lat"]),
+        "lng": float(data["lng"]),
+        "tz_str": data["tz_str"]
     }
     chart = AstrologyChartEntity(**chart_args)
     planets = []
@@ -50,10 +55,7 @@ def chart_data():
     return jsonify({"planets": planets, "houses": houses})
 
 def main():
-    try:
-        AstrologyChartView(**chart_args)
-    except Exception as e:
-        print(f"Application error: {e}")
+    print("BirthChartGenerator app started.")
 
 if __name__ == "__main__":
     port = 5000
