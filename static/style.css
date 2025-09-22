@@ -47,3 +47,68 @@ button {
 button:hover {
     background: #1a2533;
 }
+
+form#chartForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.form-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 16px;
+}
+
+.form-row.grouped {
+    flex-direction: row;
+    justify-content: center;
+    gap: 32px;
+}
+
+.form-row.grouped>div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 120px;
+}
+
+form#chartForm label {
+    margin: 8px 0 2px 0;
+    font-weight: 500;
+    color: #2d3e50;
+    text-align: center;
+}
+
+form#chartForm input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 8px;
+    border: 1px solid #d0d4e0;
+    border-radius: 5px;
+    font-size: 1em;
+    text-align: center;
+}
+
+form#chartForm select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 8px;
+    border: 1px solid #d0d4e0;
+    border-radius: 5px;
+    font-size: 1em;
+    text-align: center;
+    background: #fff;
+    color: #2d3e50;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    box-sizing: border-box;
+}
+
+form#chartForm button {
+    margin-top: 12px;
+}

@@ -1,0 +1,50 @@
+{
+    "Ari": {
+        "name": "Aries",
+        "icon": "\u2648"
+    },
+    "Tau": {
+        "name": "Taurus",
+        "icon": "\u2649"
+    },
+    "Gem": {
+        "name": "Gemini",
+        "icon": "\u264A"
+    },
+    "Can": {
+        "name": "Cancer",
+        "icon": "\u264B"
+    },
+    "Leo": {
+        "name": "Leo",
+        "icon": "\u264C"
+    },
+    "Vir": {
+        "name": "Virgo",
+        "icon": "\u264D"
+    },
+    "Lib": {
+        "name": "Libra",
+        "icon": "\u264E"
+    },
+    "Sco": {
+        "name": "Scorpio",
+        "icon": "\u264F"
+    },
+    "Sag": {
+        "name": "Sagittarius",
+        "icon": "\u2650"
+    },
+    "Cap": {
+        "name": "Capricorn",
+        "icon": "\u2651"
+    },
+    "Aqu": {
+        "name": "Aquarius",
+        "icon": "\u2652"
+    },
+    "Pis": {
+        "name": "Pisces",
+        "icon": "\u2653"
+    }
+}

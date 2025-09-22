@@ -9,10 +9,128 @@
   <body>
     <div class="container">
       <h1>Birth Chart Generator</h1>
+      <form id="chartForm">
+        <div class="form-row">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Name"
+            required
+          />
+        </div>
+        <div class="form-row grouped">
+          <div>
+            <label for="day">Day</label>
+            <input
+              type="number"
+              id="day"
+              name="day"
+              placeholder="Day"
+              required
+            />
+          </div>
+          <div>
+            <label for="month">Month</label>
+            <input
+              type="number"
+              id="month"
+              name="month"
+              placeholder="Month"
+              required
+            />
+          </div>
+          <div>
+            <label for="year">Year</label>
+            <input
+              type="number"
+              id="year"
+              name="year"
+              placeholder="Year"
+              required
+            />
+          </div>
+        </div>
+        <div class="form-row grouped">
+          <div>
+            <label for="hour">Hour</label>
+            <input
+              type="number"
+              id="hour"
+              name="hour"
+              placeholder="Hour"
+              required
+            />
+          </div>
+          <div>
+            <label for="minute">Minute</label>
+            <input
+              type="number"
+              id="minute"
+              name="minute"
+              placeholder="Minute"
+              required
+            />
+          </div>
+        </div>
+        <div class="form-row grouped">
+          <div>
+            <label for="country">Country</label>
+            <select id="country" name="country" required>
+              <option value="BR" selected>Brazil</option>
+              <!-- Options will be populated by JS -->
+            </select>
+          </div>
+          <div>
+            <label for="city">City</label>
+            <select id="city" name="city" required>
+              <option value="">Select a country first</option>
+              <!-- Options will be populated by JS -->
+            </select>
+          </div>
+        </div>
+        <div class="form-row grouped">
+          <div>
+            <label for="lat">Latitude</label>
+            <input
+              type="number"
+              step="any"
+              id="lat"
+              name="lat"
+              placeholder="Latitude"
+              required
+            />
+          </div>
+          <div>
+            <label for="lng">Longitude</label>
+            <input
+              type="number"
+              step="any"
+              id="lng"
+              name="lng"
+              placeholder="Longitude"
+              required
+            />
+          </div>
+        </div>
+        <div class="form-row">
+          <label for="tz_str">Timezone</label>
+          <input
+            type="text"
+            id="tz_str"
+            name="tz_str"
+            value="America/Sao_Paulo"
+            required
+            disabled
+            style="background: #f0f0f0; color: #888"
+          />
+        </div>
+        <button type="submit" id="loadChart">Load Chart</button>
+      </form>
       <div id="chart-data">
         <!-- Chart data will be rendered here -->
       </div>
-      <button id="loadChart">Load Chart</button>
     </div>
     <script src="static/script.js"></script>
   </body>
